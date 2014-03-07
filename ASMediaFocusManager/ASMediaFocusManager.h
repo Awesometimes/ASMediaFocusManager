@@ -24,15 +24,8 @@
 - (NSString *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager titleForView:(UIView *)view;
 
 @optional
-// Called when a focus view is about to be shown. For example, you might use this method to hide the status bar.
-- (void)mediaFocusManagerWillAppear:(ASMediaFocusManager *)mediaFocusManager;
-// Called when a focus view has been shown.
-- (void)mediaFocusManagerDidAppear:(ASMediaFocusManager *)mediaFocusManager;
-// Called when the view is about to be dismissed by the 'done' button or by gesture. For example, you might use this method to show the status bar (if it was hidden before).
-- (void)mediaFocusManagerWillDisappear:(ASMediaFocusManager *)mediaFocusManager;
-// Called when the view has be dismissed by the 'done' button or by gesture.
-- (void)mediaFocusManagerDidDisappear:(ASMediaFocusManager *)mediaFocusManager;
-
+//Called when the view has be dismissed by the 'done' button or by gesture.
+- (void)mediaFocusManagerDidDismiss:(ASMediaFocusManager *)mediaFocusManager;
 @end
 
 
@@ -49,10 +42,12 @@
 @property (nonatomic, assign) BOOL zoomEnabled;
 // Returns whether gesture is disabled during zooming. Defaults to YES.
 @property (nonatomic, assign) BOOL gestureDisabledDuringZooming;
-// Returns whether defocuses with tap. Defaults to NO.
+
 @property (nonatomic) BOOL isDefocusingWithTap;
 
 - (void)installOnViews:(NSArray *)views;
 - (void)installOnView:(UIView *)view;
+
+- (void)handleDefocusGesture:(UIGestureRecognizer *)gesture withAnimation:(BOOL)animated;
 
 @end
