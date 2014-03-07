@@ -427,10 +427,10 @@ static CGFloat const kAnimationDuration = 0.5;
         }
 
     }
-
 }
+
 - (void)handleDefocusGesture:(UIGestureRecognizer *)gesture
 {
-    [self handleDefocusGesture:gesture withAnimation:NO];
+    [self handleDefocusGesture:gesture withAnimation:YES];
 }
 @end
